@@ -1,0 +1,1225 @@
+/* =========================================================
+   ROOT DEĞİŞKENLER
+   ========================================================= */
+:root {
+  --ues-sidebar: #061a34;
+  --ues-sidebar-light: #0a294b;
+  --ues-blue: #087df4;
+  --ues-blue-light: #2da6ff;
+  --ues-green: #13ad72;
+  --ues-orange: #f49a23;
+  --ues-purple: #7d4ee9;
+  --ues-red: #e94f5d;
+  --ues-bg: #f3f7fb;
+  --ues-card: #ffffff;
+  --ues-text: #0b1d37;
+  --ues-muted: #73839a;
+  --ues-border: #e2eaf3;
+  --ues-sidebar-width: 238px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ues-text);
+  background: var(--ues-bg);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.ues-dashboard {
+  height: 100vh;
+  overflow: hidden;
+  background: var(--ues-bg);
+}
+
+.ues-dashboard-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--ues-sidebar-width);
+  overflow: hidden;
+}
+
+.ues-dashboard-content {
+  flex: 1;
+  padding: 12px 20px 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+.ues-dashboard-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: var(--ues-sidebar-width);
+  padding: 20px 12px 17px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  background: linear-gradient(180deg, #05192f 0%, #082541 100%);
+  box-shadow: 5px 0 22px rgba(5, 24, 47, 0.08);
+}
+
+.ues-sidebar-logo {
+  min-height: 64px;
+  padding: 0 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 10px;
+}
+
+.ues-sidebar-logo__mark {
+  width: 44px;
+  height: 48px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #14aaff, #0874e8 55%, #061b37);
+  clip-path: polygon(50% 0, 93% 23%, 93% 72%, 50% 100%, 7% 72%, 7% 23%);
+}
+
+.ues-sidebar-brand strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.ues-sidebar-brand strong span {
+  color: #20a8ff;
+}
+
+.ues-sidebar-brand small {
+  display: block;
+  margin-top: 1px;
+  color: #b0c8df;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.ues-sidebar-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.ues-sidebar-navigation button {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 13px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #d7e3f0;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.ues-sidebar-navigation button:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+.ues-sidebar-navigation button.active {
+  background: linear-gradient(90deg, #0875ec, #138cff);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 103, 235, 0.22);
+}
+
+.ues-nav-icon {
+  width: 22px;
+  flex: 0 0 22px;
+  text-align: center;
+  color: #a9c0d7;
+  font-size: 18px;
+}
+
+.ues-sidebar-navigation button.active .ues-nav-icon {
+  color: #ffffff;
+}
+
+.ues-sidebar-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ues-sidebar-footer .ues-sidebar-promo {
+  position: relative;
+  min-height: 90px;
+  padding: 35px 13px 8px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  margin-top: 0;
+}
+
+.ues-sidebar-footer .ues-sidebar-runner {
+  position: absolute;
+  top: 0;
+  right: 1px;
+  font-size: 50px;
+  filter: grayscale(1);
+  opacity: 0.10;
+  transform: rotate(-5deg);
+}
+
+.ues-sidebar-footer .ues-sidebar-promo p {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.ues-sidebar-footer .ues-sidebar-promo i {
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin-top: 5px;
+  background: #16a4ff;
+}
+
+/* ==========================================================
+   TOP BAR
+   ========================================================== */
+.ues-dashboard-topbar {
+  height: 52px;
+  flex-shrink: 0;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--ues-border);
+  box-shadow: 0 2px 12px rgba(24, 58, 93, 0.025);
+}
+
+.ues-topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.ues-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ues-user-avatar {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #188ff4, #092b50);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ues-user-info > div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.ues-user-info strong {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0b1d37;
+}
+
+.ues-user-info span {
+  font-size: 9px;
+  color: #74849a;
+}
+
+.ues-topbar-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.ues-slogan {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0a4a8a;
+  letter-spacing: 1px;
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  transform: rotate(-2deg);
+}
+
+.ues-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ues-notification {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: transparent;
+  color: #536982;
+  font-size: 17px;
+  border-radius: 50%;
+  transition: background 150ms ease;
+}
+
+.ues-notification:hover {
+  background: #f0f5fa;
+}
+
+.ues-notification i {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ef4b55;
+}
+
+.ues-language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-right: 1px solid #dfe7ef;
+  color: #455a74;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ues-language img {
+  width: 17px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.ues-current-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #5f728b;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 14px;
+  background: #f0f5fa;
+  border-radius: 18px;
+}
+
+.ues-current-date span:first-child {
+  font-size: 13px;
+}
+
+/* ==========================================================
+   WELCOME
+   ========================================================== */
+.ues-dashboard-welcome {
+  margin-bottom: 14px;
+}
+
+.ues-dashboard-welcome h1 {
+  margin: 0;
+  color: #0b1c35;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.ues-dashboard-welcome h1 span {
+  color: #087df4;
+}
+
+.ues-welcome-subtitle {
+  margin: 3px 0 0;
+  color: #74849a;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   GENERAL CARD
+   ========================================================== */
+.ues-card {
+  background: #ffffff;
+  border: 1px solid var(--ues-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(25, 60, 95, 0.03);
+  overflow: hidden;
+}
+
+.ues-card-header {
+  min-height: 32px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid var(--ues-border);
+}
+
+.ues-card-header h2 {
+  margin: 0;
+  color: #10223c;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.ues-card-header p {
+  margin: 1px 0 0;
+  color: #7b8aa0;
+  font-size: 8px;
+}
+
+.ues-text-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #087df4;
+  font-size: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ==========================================================
+   TOP GRID
+   ========================================================== */
+.ues-dashboard-top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(230px, 0.9fr);
+  gap: 12px;
+}
+
+.ues-dashboard-primary {
+  min-width: 0;
+}
+
+.ues-dashboard-environment {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ==========================================================
+   KPI CARDS
+   ========================================================== */
+.ues-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.ues-metric-card {
+  position: relative;
+  min-height: 100px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ues-metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.ues-metric-card--blue {
+  background: linear-gradient(135deg, #0a4a8a 0%, #1a6fc4 100%);
+}
+
+.ues-metric-card--green {
+  background: linear-gradient(135deg, #0a6e4a 0%, #1a9e6e 100%);
+}
+
+.ues-metric-card--orange {
+  background: linear-gradient(135deg, #b86a0a 0%, #e8911a 100%);
+}
+
+.ues-metric-card--purple {
+  background: linear-gradient(135deg, #4a1a8a 0%, #7a3ac9 100%);
+}
+
+.ues-metric-card__icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  font-size: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0b1d37;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.ues-metric-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ues-metric-card__content > span {
+  display: block;
+  color: rgba(255, 255, 255, 0.90);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.ues-metric-card__content > div {
+  margin-top: 3px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ues-metric-card__content strong {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);
+}
+
+.ues-metric-card__content .ues-change {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 18px;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+}
+
+.ues-metric-trend {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  font-size: 16px;
+  opacity: 0.35;
+}
+
+/* ==========================================================
+   ANALYTICS GRID
+   ========================================================== */
+.ues-analytics-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(150px, 0.8fr);
+  gap: 10px;
+}
+
+/* ==========================================================
+   ORGANİZASYON KARTI
+   ========================================================== */
+.ues-org-card {
+  min-height: 210px;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #e8f2ff 0%, #d4e8ff 100%);
+  border: 1px solid #b8d4f0;
+  border-radius: 10px;
+}
+
+.ues-org-card .ues-card-header h2 {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0a4a8a;
+}
+
+.ues-org-card .ues-card-header p {
+  font-size: 9px;
+  color: #3a6a9a;
+}
+
+.ues-org-content {
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ues-org-content .ues-donut {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(#087df4 0deg 100deg, #13ad72 100deg 180deg, #f6a128 180deg 250deg, #8254eb 250deg 360deg);
+  position: relative;
+}
+
+.ues-org-content .ues-donut::after {
+  content: "";
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #e8f2ff;
+}
+
+.ues-org-content .ues-donut__center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.ues-org-content .ues-donut__center strong {
+  display: block;
+  font-size: 17px;
+  color: #0a4a8a;
+}
+
+.ues-org-content .ues-donut__center span {
+  font-size: 8px;
+  color: #4a6a8a;
+}
+
+.ues-org-list {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.ues-org-list > div {
+  min-height: 19px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 1px 0;
+  color: #1a3a5a;
+}
+
+.ues-org-list > div > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.ues-org-list i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.ues-org-list > div strong {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0a4a8a;
+}
+
+.ues-org-list .org-club { background: #087df4; }
+.ues-org-list .org-federation { background: #13ad72; }
+.ues-org-list .org-academy { background: #f6a128; }
+.ues-org-list .org-other { background: #8254eb; }
+
+/* ==========================================================
+   SPOR BRANŞLARI KARTI
+   ========================================================== */
+.ues-sports-card {
+  min-height: 210px;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #e6f9f0 0%, #cdf3e3 100%);
+  border: 1px solid #a8dcc8;
+  border-radius: 10px;
+}
+
+.ues-sports-card .ues-card-header h2 {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0a6e4a;
+}
+
+.ues-sports-card .ues-card-header p {
+  font-size: 9px;
+  color: #2a7a5a;
+}
+
+.ues-sports-content {
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ues-sports-content .ues-donut {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(#087df4 0deg 139deg, #14b472 139deg 217deg, #f6a128 217deg 263deg, #8254eb 263deg 304deg, #ed5d69 304deg 333deg, #23b4c8 333deg 360deg);
+  position: relative;
+}
+
+.ues-sports-content .ues-donut::after {
+  content: "";
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #e6f9f0;
+}
+
+.ues-sports-content .ues-donut__center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.ues-sports-content .ues-donut__center strong {
+  display: block;
+  font-size: 17px;
+  color: #0a6e4a;
+}
+
+.ues-sports-content .ues-donut__center span {
+  font-size: 8px;
+  color: #3a7a5a;
+}
+
+.ues-sports-list {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.ues-sports-list > div {
+  min-height: 19px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 1px 0;
+  color: #1a4a3a;
+}
+
+.ues-sports-list > div > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.ues-sports-list i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.ues-sports-list > div strong {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0a6e4a;
+}
+
+.ues-sports-list .football { background: #087df4; }
+.ues-sports-list .basketball { background: #14b472; }
+.ues-sports-list .volleyball { background: #f6a128; }
+.ues-sports-list .athletics { background: #8254eb; }
+.ues-sports-list .handball { background: #ed5d69; }
+.ues-sports-list .swimming { background: #23b4c8; }
+
+/* ==========================================================
+   ÇEVRESEL FAKTÖRLER KARTI
+   ========================================================== */
+.ues-environment-card {
+  min-height: 210px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: linear-gradient(135deg, #0a4a8a 0%, #1a6fc4 100%);
+  border: none;
+  border-radius: 10px;
+}
+
+.ues-environment-card .ues-card-header h2 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ues-environment-card .ues-card-header p {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ues-location {
+  color: #ffffff !important;
+  font-size: 10px !important;
+}
+
+.ues-icon-button {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.ues-icon-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.ues-weather-main {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.85fr) minmax(120px, 1.15fr);
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.ues-weather-temperature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ues-weather-sun {
+  color: #ffdd77;
+  font-size: 36px;
+}
+
+.ues-weather-temperature div {
+  display: flex;
+  flex-direction: column;
+}
+
+.ues-weather-temperature strong {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ues-weather-temperature span {
+  font-size: 11px;
+  margin-top: 1px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ues-weather-temperature small {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 9px;
+  margin-top: 1px;
+}
+
+.ues-weather-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ues-weather-details > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ues-weather-details > div > span {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 9px;
+}
+
+.ues-weather-details p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 9px;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.ues-weather-details strong {
+  display: block;
+  margin-top: 1px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ues-aqi-good {
+  color: #7ddfb0 !important;
+}
+
+.ues-weather-forecast {
+  margin-top: 8px;
+  padding-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ues-weather-forecast > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  border-right: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 4px 0;
+}
+
+.ues-weather-forecast > div:last-child {
+  border-right: 0;
+}
+
+.ues-weather-forecast span {
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.ues-weather-forecast b {
+  color: #ffdd77;
+  font-size: 15px;
+}
+
+.ues-weather-forecast strong {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ==========================================================
+   AI UYARILARI
+   ========================================================== */
+.ues-ai-warnings {
+  padding: 4px 0;
+  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ues-ai-warnings .ues-warning-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 4px;
+  padding-top: 4px;
+}
+
+.ues-ai-warnings .ues-warning-title > span {
+  font-size: 18px;
+}
+
+.ues-ai-warnings .ues-warning-title h3 {
+  font-size: 11px !important;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.ues-ai-warnings .ues-warning-title p {
+  font-size: 8px;
+  margin: 1px 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+
+.ues-ai-warnings .ai-message {
+  font-size: 11px;
+  color: #ffffff;
+  padding: 4px 0 2px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   BOTTOM GRID - RENKLİ KARTLAR
+   ========================================================== */
+.ues-dashboard-bottom-grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ues-bottom-card {
+  min-height: 110px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+}
+
+.ues-bottom-card .ues-card-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 0 6px 0;
+  min-height: 28px;
+}
+
+.ues-bottom-card .ues-card-header h2 {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ues-bottom-card .ues-card-header p {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.ues-text-link--white {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+}
+
+.ues-text-link--white:hover {
+  color: #ffffff !important;
+}
+
+/* Risk Analizi Kartı */
+.ues-bottom-card--risk {
+  background: linear-gradient(135deg, #8a1a1a 0%, #c43a3a 100%);
+}
+
+/* Performans Öngörüsü Kartı */
+.ues-bottom-card--projection {
+  background: linear-gradient(135deg, #0a6e4a 0%, #1a9e6e 100%);
+}
+
+/* Antrenman Önerileri Kartı */
+.ues-bottom-card--training {
+  background: linear-gradient(135deg, #b86a0a 0%, #e8911a 100%);
+}
+
+.ues-risk-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.ues-risk {
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ues-risk span {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.80);
+  font-weight: 500;
+}
+
+.ues-risk strong {
+  margin-top: 1px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ues-risk small {
+  font-size: 7px;
+  color: rgba(255, 255, 255, 0.60);
+}
+
+.ues-risk--high {
+  background: rgba(255, 0, 0, 0.25);
+}
+
+.ues-risk--medium {
+  background: rgba(255, 165, 0, 0.25);
+}
+
+.ues-risk--low {
+  background: rgba(0, 255, 0, 0.15);
+}
+
+.ues-projection {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 6px;
+}
+
+.ues-projection > div:first-child {
+  text-align: center;
+}
+
+.ues-projection strong {
+  display: block;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.ues-projection span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.ues-projection-bars {
+  height: 40px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.ues-projection-bars i {
+  width: 7px;
+  border-radius: 3px 3px 0 0;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.ues-projection-bars i:nth-child(1) { height: 12px; }
+.ues-projection-bars i:nth-child(2) { height: 18px; }
+.ues-projection-bars i:nth-child(3) { height: 22px; }
+.ues-projection-bars i:nth-child(4) { height: 28px; }
+.ues-projection-bars i:nth-child(5) { height: 34px; }
+.ues-projection-bars i:nth-child(6) { height: 40px; }
+
+.ues-training-recommendation {
+  min-height: 50px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  margin-top: 6px;
+}
+
+.ues-training-recommendation > span {
+  font-size: 20px;
+}
+
+.ues-training-recommendation p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.90);
+  font-size: 9px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.ues-training-recommendation strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.ues-dashboard-footer {
+  flex-shrink: 0;
+  min-height: 36px;
+  margin-top: 6px;
+  padding: 5px 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  color: #8090a4;
+  font-size: 7px;
+  border-top: 1px solid #e9eef4;
+}
+
+.ues-dashboard-footer nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ues-dashboard-footer nav button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.ues-dashboard-footer nav i {
+  width: 1px;
+  height: 8px;
+  background: #d7e0e9;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 1280px) {
+  :root { --ues-sidebar-width: 215px; }
+  .ues-dashboard-top-grid {
+    grid-template-columns: minmax(0, 1.8fr) minmax(200px, 0.9fr);
+  }
+  .ues-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1050px) {
+  :root { --ues-sidebar-width: 74px;

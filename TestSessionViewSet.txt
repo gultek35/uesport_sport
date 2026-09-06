@@ -1,0 +1,21 @@
+class TestSessionViewSet(viewsets.ModelViewSet):
+    queryset = TestSession.objects.all()
+    serializer_class = TestSessionSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def perform_create(self, serializer):
+        session = serializer.save()
+        # Otomatik revision oluştur
+        TestSessionPlanRevision.objects.create(
+            session=session,
+            revision_no=1,
+            semantic_hash='initial',
+            planned_start=timezone.now(),
+            planned_end=timezone.now() + timedelta(days=1),
+            timezone='UTC',
+            status='DRAFT',
+            created_by=self.request.user.id if self.request.user.is_authenticated else None,
+            is_current=True
+        )
+
+    # ... diğer metodlar (lock, cancel, reopen, readiness) aynen kalır

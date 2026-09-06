@@ -1,0 +1,190 @@
+.list-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.list-header h2 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.add-btn {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #16213e, #0f3460);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: white;
+}
+
+.filter-select {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: white;
+  min-width: 150px;
+}
+
+.result-count {
+  margin-left: auto;
+  font-weight: 500;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.athlete-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.athlete-table th {
+  text-align: left;
+  padding: 12px 14px;
+  background: #f1f3f5;
+  color: #1a1a2e;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.athlete-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: middle;
+}
+
+.athlete-table tr:hover {
+  background: #f8f9fa;
+}
+
+.empty-row {
+  text-align: center;
+  padding: 40px 0;
+  color: #868e96;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.edit-btn {
+  padding: 6px 14px;
+  background: #1a1a2e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.edit-btn:hover {
+  background: #16213e;
+}
+
+.delete-btn {
+  padding: 6px 14px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #1a1a2e;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #dc3545;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .list-container {
+    padding: 16px;
+    margin: 16px;
+  }
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-input, .filter-select {
+    width: 100%;
+  }
+  .result-count {
+    margin-left: 0;
+    text-align: right;
+  }
+  .athlete-table th, .athlete-table td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  .actions {
+    flex-direction: column;
+  }
+}

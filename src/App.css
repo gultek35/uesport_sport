@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #a8b2d1;
+  font-size: 1.1rem;
+}
+
+.section {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: #1a1a2e;
+}
+
+.test-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.test-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #1a1a2e;
+  transition: background 0.2s;
+}
+
+.test-item:hover {
+  background: #e9ecef;
+}
+
+.test-code {
+  font-weight: 600;
+  color: #1a1a2e;
+  min-width: 100px;
+  font-family: monospace;
+}
+
+.test-name {
+  flex: 1;
+  color: #333;
+}
+
+.test-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-active {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-draft {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-deprecated {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #1a1a2e;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #dc3545;
+  font-size: 1.1rem;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .test-item {
+    flex-wrap: wrap;
+  }
+  .test-code {
+    min-width: 80px;
+  }
+}
