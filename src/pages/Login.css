@@ -1,0 +1,584 @@
+/* =========================================================
+   RESET - TAM EKRAN
+   ========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  color: #071a34;
+}
+
+/* =========================================================
+   LOGIN PAGE - TAM EKRAN GRID
+   ========================================================= */
+.login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================================================
+   SOL PANEL
+   ========================================================= */
+.login-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 40px;
+  background: #ffffff;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.login-panel__inner {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Dil Seçici - PNG Bayrak ile */
+.login-language {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #536783;
+  margin-bottom: 25px;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.login-language__flag {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.login-language__arrow {
+  font-size: 14px;
+  margin-left: 2px;
+}
+
+/* Logo */
+.login-brand {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-brand__symbol {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #0da8ff, #061b38);
+  clip-path: polygon(50% 0%, 91% 22%, 91% 72%, 50% 100%, 9% 72%, 9% 22%);
+  color: #fff;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.login-brand__name {
+  font-size: 36px;
+  font-weight: 900;
+  color: #07182f;
+  letter-spacing: -1.5px;
+}
+
+.login-brand__ue {
+  background: linear-gradient(90deg, #0873ef, #18a7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-brand__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #10213d;
+  margin-top: 4px;
+}
+
+.login-brand__subtitle {
+  font-size: 13px;
+  color: #74839b;
+  margin-top: 4px;
+}
+
+/* Form */
+.login-form { margin-top: 8px; }
+
+.login-field {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d7e2ef;
+  border-radius: 8px;
+  padding: 0 12px;
+  height: 46px;
+  margin-bottom: 12px;
+  background: #fbfdff;
+  transition: border-color 0.2s;
+}
+
+.login-field:focus-within {
+  border-color: #087cf0;
+  box-shadow: 0 0 0 3px rgba(8, 124, 240, 0.1);
+}
+
+.login-field__icon {
+  color: #71839d;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.login-field input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #112541;
+}
+
+.login-field input::placeholder { color: #8190a6; }
+
+.login-field__password-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #71839d;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.login-field__password-button:hover {
+  color: #087cf0;
+}
+
+/* Beni hatırla / Şifremi unuttum? */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 0 14px;
+}
+
+.login-remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #425773;
+  cursor: pointer;
+}
+
+.login-remember input {
+  width: 15px;
+  height: 15px;
+  accent-color: #087cf0;
+  cursor: pointer;
+}
+
+.login-text-button {
+  background: none;
+  border: none;
+  color: #087cf0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-text-button:hover { text-decoration: underline; }
+
+/* Hata mesajı */
+.login-error {
+  background: #fff5f5;
+  border: 1px solid #ffd1d1;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #c62828;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+/* Giriş Yap Butonu */
+.login-submit {
+  width: 100%;
+  height: 46px;
+  background: linear-gradient(90deg, #0874ed, #158aff);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 16px rgba(0, 111, 241, 0.25);
+  transition: all 0.2s;
+}
+
+.login-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 111, 241, 0.35);
+}
+
+.login-submit:disabled { opacity: 0.7; cursor: wait; }
+.login-submit__arrow { font-size: 20px; }
+
+/* veya ayracı */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.login-divider span {
+  flex: 1;
+  height: 1px;
+  background: #d8e0ea;
+}
+
+.login-divider p {
+  color: #8a98aa;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* SSO Butonu */
+.login-sso {
+  width: 100%;
+  height: 46px;
+  border: 1.5px solid #087cf0;
+  border-radius: 8px;
+  background: #fff;
+  color: #087cf0;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.login-sso:hover {
+  background: #f4f9ff;
+  box-shadow: 0 4px 12px rgba(8, 124, 240, 0.1);
+}
+
+.login-sso__icon { font-size: 16px; }
+
+/* Slogan */
+.login-quote {
+  text-align: center;
+  color: #71819a;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 18px 0 14px;
+}
+
+/* Spor İkonları */
+.login-sports {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.login-sports span {
+  font-size: 22px;
+  filter: grayscale(1);
+  opacity: 0.5;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.login-sports span:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.login-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 10px;
+  color: #8492a7;
+  margin-top: 8px;
+}
+
+.login-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-footer__links button {
+  background: none;
+  border: none;
+  color: #8492a7;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.login-footer__links button:hover { color: #087cf0; }
+
+/* =========================================================
+   SAĞ PANEL - HERO (YAZILAR BÜYÜTÜLDÜ)
+   ========================================================= */
+.login-hero {
+  position: relative;
+  background: #071a34;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% center;
+  pointer-events: none;
+}
+
+.login-hero__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(2, 15, 35, 0.75) 0%, rgba(3, 22, 46, 0.30) 50%, rgba(3, 22, 46, 0.05) 80%);
+  z-index: 1;
+}
+
+.login-hero__left-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 35%;
+  background: rgba(194, 220, 241, 0.12);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 2;
+}
+
+/* Sağ üst - HER SPORCU BİR POTANSİYELDİR */
+.login-hero__eyebrow {
+  position: absolute;
+  top: 35px;
+  right: 40px;
+  z-index: 4;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  line-height: 1.8;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.login-hero__eyebrow i {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #168dff;
+  margin-left: auto;
+  margin-top: 8px;
+}
+
+/* Ana mesaj - VERİ ANALİZ GELİŞİM BAŞARI */
+.login-hero__message {
+  position: absolute;
+  top: 28%;
+  left: 6%;
+  z-index: 4;
+}
+
+.login-hero__message h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(42px, 4.2vw, 70px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.login-hero__message p {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(16px, 1.3vw, 20px);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.login-hero__blue-line {
+  width: 50px;
+  height: 3px;
+  background: #168dff;
+  margin-top: 18px;
+  border-radius: 4px;
+}
+
+/* Alt özellikler */
+.login-benefits {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.login-benefit {
+  text-align: center;
+  padding: 10px 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.login-benefit:last-child { border-right: 0; }
+
+.login-benefit__icon {
+  font-size: 26px;
+  color: #49aaff;
+  min-height: 34px;
+  line-height: 1;
+}
+
+/* Analiz, Gelişim, Başarı, Gelecek - Büyütüldü */
+.login-benefit strong {
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Alt açıklamalar - Büyütüldü */
+.login-benefit p {
+  margin: 3px 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* İmza - Sporla Daha İleriye */
+.login-hero__signature {
+  position: absolute;
+  bottom: 3%;
+  right: 4%;
+  z-index: 4;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Segoe Script', 'Brush Script MT', cursive;
+  font-size: clamp(22px, 2vw, 34px);
+  font-style: italic;
+  transform: rotate(-4deg);
+}
+
+.login-hero__signature span {
+  display: block;
+  width: 70%;
+  height: 3px;
+  background: #168dff;
+  margin-top: 5px;
+  margin-left: auto;
+  border-radius: 20px;
+  transform: rotate(-3deg);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1024px) {
+  .login-page {
+    grid-template-columns: 1fr 1fr;
+  }
+  .login-benefits {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .login-benefit {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 8px;
+  }
+  .login-hero__message h2 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+  .login-hero {
+    display: none;
+  }
+  .login-panel {
+    padding: 24px 20px;
+  }
+  .login-panel__inner {
+    max-width: 100%;
+  }
+  .login-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-brand__name {
+    font-size: 28px;
+  }
+  .login-brand__symbol {
+    width: 55px;
+    height: 55px;
+    font-size: 26px;
+  }
+  .login-field {
+    height: 40px;
+  }
+  .login-submit {
+    height: 40px;
+    font-size: 14px;
+  }
+  .login-sso {
+    height: 40px;
+    font-size: 13px;
+  }
+  .login-sports span {
+    font-size: 18px;
+    gap: 12px;
+  }
+  .login-language__flag {
+    width: 20px;
+    height: 14px;
+  }
+}
